@@ -1,0 +1,31 @@
+<div class="container pad-top">
+  <table class="table trailtable">
+      <tr>
+          <td><h3>Details for {{trail.name}}</h3></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Name</td>
+          <td>{{trail.name}}</td>
+      </tr>
+      <tr>
+          <td>Length</td>
+          <td>{{trail.length}}</td>
+      </tr>
+      <tr>
+          <td>Difficulty</td>
+          <td>{{trail.difficulty}}</td>
+      </tr>
+      <tr>
+          <td>Location</td>
+          <td>{{trail.location}}</td>
+      </tr>
+      <tr>
+          <td>Discription</td>
+          <td>{{trail.discription}}</td>
+      </tr>
+  </table>
+  <div>
+      <a class="btn btn-primary" ui-sref="editShipwreck({id:trail.id})">Edit</a>
+  </div>
+</div>

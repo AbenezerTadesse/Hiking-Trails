@@ -1,0 +1,18 @@
+<div class="container pad-top">
+  <a ui-sref="newTrail" class="btn-primary btn-lg nodecoration">Add New Trail</a>
+  <table class="table trailtable">
+      <tr>
+          <td><h3>All Trails</h3></td>
+          <td></td>
+      </tr>
+      <tr ng-repeat="trail in trails">
+          <td>{{trail.name}}</td>
+          <td>{{trail.difficulty}}</td>
+          <td>{{trail.location}}</td>
+          <td>
+              <a class="btn btn-primary" ui-sref="viewShipwreck({id:trail.id})">View</a>
+              <a class="btn btn-danger"  ng-click="deleteShipwreck(trail)">Delete</a>
+          </td>
+      </tr>
+  </table>
+</div>
