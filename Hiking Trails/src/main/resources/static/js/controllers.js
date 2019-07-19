@@ -1,10 +1,10 @@
-angular.module('app.controllers', []).controller('TrailListController', function($scope, $state, popupService, $window, Shipwreck) {
+angular.module('app.controllers', []).controller('TrailListController', function($scope, $state, popupService, $window, Trail) {
   $scope.trails = Trail.query(); //fetch all shipwrecks. Issues a GET to /api/vi/shipwrecks
 
   $scope.deleteTrail = function(trail) { // Delete a Shipwreck. Issues a DELETE to /api/v1/shipwrecks/:id
     if (popupService.showPopup('Really delete this?')) {
       trail.$delete(function() {
-        $scope.trail = trail.query(); 
+        $scope.trail = Trail.query();
         $state.go('trails');
       });
     }
@@ -16,10 +16,10 @@ angular.module('app.controllers', []).controller('TrailListController', function
 
   $scope.addTrail = function() { //create a new shipwreck. Issues a POST to /api/v1/shipwrecks
     $scope.trail.$save(function() {
-      $state.go('trail'); // on success go back to the list i.e. shipwrecks state.
+      $state.go('trails'); // on success go back to the list i.e. shipwrecks state.
     });
   };
-}).controller('TrailEditController', function($scope, $state, $stateParams, Shipwreck) {
+}).controller('TrailEditController', function($scope, $state, $stateParams, Trail) {
   $scope.updateTrail = function() { //Update the edited shipwreck. Issues a PUT to /api/v1/shipwrecks/:id
     $scope.trail.$update(function() {
       $state.go('trails'); // on success go back to the list i.e. shipwrecks state.
