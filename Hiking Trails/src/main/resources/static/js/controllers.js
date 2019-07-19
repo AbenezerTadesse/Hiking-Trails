@@ -4,7 +4,7 @@ angular.module('app.controllers', []).controller('TrailListController', function
   $scope.deleteTrail = function(trail) { // Delete a Shipwreck. Issues a DELETE to /api/v1/shipwrecks/:id
     if (popupService.showPopup('Really delete this?')) {
       trail.$delete(function() {
-        $scope.trail = Trail.query();
+        $scope.trails = Trail.query();
         $state.go('trails');
       });
     }
