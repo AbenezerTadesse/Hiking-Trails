@@ -1,7 +1,13 @@
 package com.Hiking.Trails.model;
 
-public class Trail {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Trail {
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String name;
     Double length;
